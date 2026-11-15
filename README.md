@@ -1,11 +1,26 @@
-![Agent Register. Agents forget. The Register doesn’t. A record kept by code, outside the model, shown at every decision.](assets/banner.png)
+<h1 align="center">Agent Register</h1>
 
-# Agent Register
+<p align="center">A record kept by code, outside the model, shown to the agent at every decision.</p>
 
-Until 4 November 2026 this was called the Logbook. The runs recorded under that name keep it in their data and traces; everything else says Register.
+<p align="center">
+  <a href="benchmarks/ahabench"><img alt="AhaBench: runs still in business at day 60, 0/15 without, 12/15 with the Register" src="https://img.shields.io/badge/AhaBench-0%2F15%20%E2%86%92%2012%2F15-1baf7a"></a>
+  <a href="benchmarks/yc-bench"><img alt="YC-Bench: final funds, $1.04M without, $1.98M with the Register" src="https://img.shields.io/badge/YC--Bench-%241.04M%20%E2%86%92%20%241.98M-1baf7a"></a>
+  <a href="benchmarks/clbench"><img alt="Continual Learning Bench: 1st of the 12 published systems" src="https://img.shields.io/badge/Continual%20Learning%20Bench-1st%20of%2012-1baf7a"></a>
+  <a href="benchmarks/tau2-bench"><img alt="tau2-bench: no effect" src="https://img.shields.io/badge/%CF%84%C2%B2--bench-no%20effect-8a8880"></a>
+  <a href="benchmarks/vending-bench"><img alt="Vending Bench: no effect" src="https://img.shields.io/badge/Vending%20Bench-no%20effect-8a8880"></a>
+</p>
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2a78d6"></a>
+  <img alt="Python 3.10 or later" src="https://img.shields.io/badge/python-3.10%2B-2a78d6?logo=python&logoColor=white">
+  <img alt="The Register: Python standard library only" src="https://img.shields.io/badge/Register-standard%20library%20only-2a78d6">
+  <a href="#check-the-numbers"><img alt="Every run published" src="https://img.shields.io/badge/every%20run-published-2a78d6"></a>
+  <a href="#check-the-numbers"><img alt="Checks without an API key" src="https://img.shields.io/badge/checks-no%20API%20key%20needed-2a78d6"></a>
+  <img alt="Models: Claude, through the Anthropic API" src="https://img.shields.io/badge/models-Claude-d97757?logo=anthropic&logoColor=white">
+</p>
 
-An agent only knows what it is sent at each call. The Register is a record kept by code, outside the model, and shown to the agent at every decision.
+<p align="center"><img src="assets/banner.png" alt="Agents forget. The Register doesn’t. A record kept by code, outside the model, shown at every decision." width="900"></p>
 
+An agent only knows what it is sent at each call. The Register keeps what has left that view: what the agent did, and what the world answered.
 
 ## Results
 
@@ -76,6 +91,20 @@ The Registers written by hand for each benchmark are in [register/](register).
 - **On Continual Learning Bench, the comparison is with runs published on other days.** A same-day rerun of the baseline, on 3 of the 6 tasks, confirmed the gain on radio spectrum only.
 - **Few runs**: 5 to 15 per setup. Each benchmark folder gives its protocol, numbers, limits and the commands to reproduce.
 
+## Check the numbers
+
+Every run is in this repository: what the agent was shown, what it answered, what it got back, and the scores. These commands rebuild results from that data, with no API key and no model call:
+
+```bash
+git clone https://github.com/SamBagetAI/agent-register && cd agent-register
+pip install httpx
+python benchmarks/ahabench/code/verify_replay.py   # rebuilds all 37,837 Register blocks of the AhaBench runs, byte for byte
+python benchmarks/clbench/code/traces.py           # the Continual Learning Bench trace figures, from the run data
+python benchmarks/yc-bench/code/compare.py         # the YC-Bench table, from data/runs.zip
+```
+
+Each benchmark folder gives its protocol, its limits, and the commands to run it again with an API key.
+
 ## Potential improvements
 
 Not built, or built and not measured. Each is a change to the harness, not to the model.
@@ -95,3 +124,5 @@ benchmarks/   ahabench, clbench, tau2-bench, vending-bench, yc-bench: protocol, 
 ```
 
 Runs use Claude models through the [Anthropic](https://www.anthropic.com) API. License: MIT ([LICENSE](LICENSE)).
+
+Until 4 November 2026 this was called the Logbook. The runs recorded under that name keep it in their data and traces; everything else says Register.
