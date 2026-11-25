@@ -18,7 +18,7 @@
   <img alt="Models: Claude, through the Anthropic API" src="https://img.shields.io/badge/models-Claude-d97757?logo=anthropic&logoColor=white">
 </p>
 
-<p align="center"><img src="assets/banner.png" alt="Agents forget. The Register doesn’t. A record kept by code, outside the model, shown at every decision." width="900"></p>
+<p align="center"><img src="assets/banner.gif" alt="Agents forget. The Register doesn’t. A record kept by code, outside the model, shown at every decision. The Register card fills in line by line: quotes, orders, prices, and a refused order with the missing account number." width="900"></p>
 
 An agent only knows what it is sent at each call. The Register keeps what has left that view: what the agent did, and what the world answered.
 
