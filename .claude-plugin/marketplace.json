@@ -1,0 +1,12 @@
+{
+  "name": "agent-register",
+  "description": "The Register: a record kept by code, outside the model, shown to the agent at every decision.",
+  "owner": { "name": "Samuel Jefroykin", "url": "https://github.com/SamBagetAI" },
+  "plugins": [
+    {
+      "name": "agent-register",
+      "source": ".",
+      "description": "Write a Register for the agent in your project: a model reads a spec of your agent and writes the code that keeps its record."
+    }
+  ]
+}
