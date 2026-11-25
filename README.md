@@ -22,6 +22,18 @@
 
 An agent only knows what it is sent at each call. The Register keeps what has left that view: what the agent did, and what the world answered.
 
+**In one line:** on AhaBench, Claude Haiku 5.5 with a Register beat Claude Sonnet 5.5 without it on 4 of 5 seeds, at about 1/26 of the cost.
+
+## Try it in one paste
+
+From your agent's project folder, paste this into [Claude Code](https://www.anthropic.com/claude-code):
+
+```text
+Clone https://github.com/SamBagetAI/agent-register into a folder next to this project. Read its README.md and author/README.md. Write a spec.json for the agent in this project, following author/examples/ahabench/spec.json. Then run author/author.py on it to write its Register, and show me the Register before you add it to the agent loop.
+```
+
+The author step calls Claude Opus 5.5 through the [Anthropic](https://www.anthropic.com) API, so set `ANTHROPIC_API_KEY` first. The Register it writes runs with no model call. The manual steps are in [Use it](#use-it).
+
 ## Results
 
 Five public benchmarks, each scored with its own metrics.
