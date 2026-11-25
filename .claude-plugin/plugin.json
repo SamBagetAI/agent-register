@@ -1,0 +1,10 @@
+{
+  "name": "agent-register",
+  "description": "Write a Register for the agent in your project: a record kept by code, outside the model, shown to the agent at every decision.",
+  "version": "0.1.0",
+  "author": { "name": "Samuel Jefroykin", "url": "https://github.com/SamBagetAI" },
+  "homepage": "https://github.com/SamBagetAI/agent-register",
+  "repository": "https://github.com/SamBagetAI/agent-register",
+  "license": "MIT",
+  "keywords": ["agent-memory", "ai-agents", "continual-learning", "llm-agents", "memory"]
+}
