@@ -24,6 +24,14 @@ An agent only knows what it is sent at each call. The Register keeps what has le
 
 **In one line:** on AhaBench, Claude Haiku 5.5 with a Register beat Claude Sonnet 5.5 without it on 4 of 5 seeds, at about 1/26 of the cost.
 
+## See it in one run
+
+Same task, same model (Claude Haiku 5.5), same seed. Without the Register, one supplier refuses the order 11 times for a missing account number. The account number is in every prompt the agent gets, and it never sends it. The run ends at day 20 with no order. With the Register, the block in the prompt counts the refusals per supplier. On day 17 the agent sends the account number, and the order goes through.
+
+<p align="center"><img src="assets/demo-refusals.gif" alt="AhaBench, Claude Haiku 5.5, seed 5. Without the Register: 11 refusals from Bay Area Wholesale, all for a missing account number; the account number was in 130 of 130 prompts and was never sent; 0 orders, run over at day 20. With the Register: on day 17 the block lists the refused orders per supplier, the agent sends account BIZ-0001 to Pacific Refreshments, the order is confirmed on day 18; 111 orders, run completes day 365." width="820"></p>
+
+The demo reads the published runs, with no API key and no model call: `python benchmarks/ahabench/code/demo_refusals.py`. It shows seed 5, the clearest case; `--seed 0` to `--seed 14` show the others.
+
 ## Try it in one paste
 
 From your agent's project folder, paste this into [Claude Code](https://www.anthropic.com/claude-code):
